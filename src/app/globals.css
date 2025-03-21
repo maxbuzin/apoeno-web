@@ -120,3 +120,14 @@
   @apply bg-slate-950 text-foreground w-full h-screen overflow-y-auto text-pretty;
  }
 }
+
+:root {
+ --swiper-navigation-size: 20px !important;
+ --swiper-navigation-sides-offset: 20px;
+ --swiper-navigation-color: black;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+ @apply bg-white rounded-full p-4 hover:scale-95 duration-300;
+}

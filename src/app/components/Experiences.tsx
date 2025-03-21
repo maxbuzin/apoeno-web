@@ -1,27 +1,13 @@
 'use client'
 
-import React from 'react'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { register } from 'swiper/element/bundle'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/autoplay'
-import 'swiper/css/effect-cards'
 import 'swiper/css/effect-coverflow'
-import 'swiper/css/effect-creative'
-import 'swiper/css/effect-cube'
-import 'swiper/css/effect-fade'
-import 'swiper/css/effect-flip'
 import 'swiper/css/navigation'
-import {
- EffectCards,
- EffectCoverflow,
- EffectCreative,
- EffectCube,
- EffectFade,
- EffectFlip,
- Navigation,
-} from 'swiper/modules'
+import { EffectCards, EffectCoverflow, Navigation } from 'swiper/modules'
 
 const slides = [
  {
@@ -59,40 +45,35 @@ export default function Experiences() {
   <section className='py-5'>
    <Swiper
     ref={swiperElRef}
-    modules={[
-     Navigation,
-     EffectFade,
-     EffectFlip,
-     EffectCoverflow,
-     EffectCards,
-     EffectCreative,
-     EffectCube,
-    ]}
-    effect='coverflow'
-    coverflowEffect={{
-     rotate: 50,
-     stretch: 0,
-     depth: 100,
-     modifier: 1,
-     slideShadows: true,
-    }}
+    modules={[Navigation, EffectCoverflow]}
+    grabCursor={true}
     autoplay={true}
-    slidesPerView={2.5}
+    slidesPerView={2.25}
     navigation
     loop={true}
+    speed={5000}
     setWrapperSize={true}
-    centeredSlides={true}
-    spaceBetween={-50}
-    className='w-full flex px-10'>
+    centeredSlides
+    spaceBetween={20}
+    style={{ width: '100%' }}
+    className='w-full px-10'
+    breakpoints={{
+     320: { slidesPerView: 1.25 },
+     768: { slidesPerView: 2.25 },
+     1280: { slidesPerView: 3.5 },
+    }}>
     {slides.map((item, index) => (
-     <div className='w-full border-5 border-red-600 flex relative gap-5'>
-      <SwiperSlide className='relative border-0 border-white'>
-       <img src={item.img} />
-       <span className='absolute bottom-0 text-xl font-bold text-center w-full backdrop-blur-[2px] bg-gradient-to-t from-black/20 to-black/0 py-3'>
-        {item.title}
-       </span>
-      </SwiperSlide>
-     </div>
+     <SwiperSlide
+      key={index}
+      className='cursor-grab aspect-video'>
+      <img
+       src={item.img}
+       className='object-bottom w-full'
+      />
+      <span className='absolute bottom-0 text-xl font-bold text-center w-full bg-gradient-to-t from-black/80 to-black/0 h-fit'>
+       {item.title}
+      </span>
+     </SwiperSlide>
     ))}
    </Swiper>
   </section>
