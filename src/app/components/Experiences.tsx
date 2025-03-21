@@ -1,80 +1,100 @@
 'use client'
 
 import React from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay'
+import { useRef } from 'react'
+import { register } from 'swiper/element/bundle'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/autoplay'
+import 'swiper/css/effect-cards'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/effect-creative'
+import 'swiper/css/effect-cube'
+import 'swiper/css/effect-fade'
+import 'swiper/css/effect-flip'
+import 'swiper/css/navigation'
+import {
+ EffectCards,
+ EffectCoverflow,
+ EffectCreative,
+ EffectCube,
+ EffectFade,
+ EffectFlip,
+ Navigation,
+} from 'swiper/modules'
 
 const slides = [
-  {
-    img: '/slide_jjkids_1.jpg',
-    title: 'Slide 1',
-  },
-  {
-    img: '/slide_jjkids_1.jpg',
-    title: 'Slide 2',
-  },
-  {
-    img: '/slide_jjkids_1.jpg',
-    title: 'Slide 3',
-  },
-  {
-    img: '/slide_jjkids_1.jpg',
-    title: 'Slide 4',
-  },
-  {
-    img: '/slide_jjkids_1.jpg',
-    title: 'Slide 5',
-  },
-  {
-    img: '/slide_jjkids_1.jpg',
-    title: 'Slide 6',
-  },
+ {
+  img: '/slide_jjkids_1.jpg',
+  title: 'Slide 1',
+ },
+ {
+  img: '/slide_jjkids_1.jpg',
+  title: 'Slide 2',
+ },
+ {
+  img: '/slide_jjkids_1.jpg',
+  title: 'Slide 3',
+ },
+ {
+  img: '/slide_jjkids_1.jpg',
+  title: 'Slide 4',
+ },
+ {
+  img: '/slide_jjkids_1.jpg',
+  title: 'Slide 5',
+ },
+ {
+  img: '/slide_jjkids_1.jpg',
+  title: 'Slide 6',
+ },
 ]
 
-export default function Experiences () {
-  const [ emblaRef, emblaApi ] = useEmblaCarousel(
-    {
-      loop: true,
-      align: 'center',
-      slidesToScroll: 3,
-    },
-    [ Autoplay() ]
-  )
+register()
 
-  return (
-    <section
-      data-aos='fade-up'
-      className='flex flex-col pt-12 w-full min-h-fit container mx-auto'>
-      <h2 className='text-3xl text-center font-semibold mb-6'>MY EXPERIENCES</h2>
+export default function Experiences() {
+ const swiperElRef = useRef(null)
 
-      <div className='px-5 w-full'>
-
-        <div className='overflow-hidden' ref={ emblaRef }>
-
-          {/* essa que coloquei a borda vermelha esta com slide, ela toda, ai as imagens de dentro vao junto, o que apareceu na tela, foi o resto nao aparece, fica cordado */ }
-          <div className='flex border border-red-600'> { slides.map( ( item, index ) => (
-
-            // na minha cabeca essa div que deveria estar fazendo slide....
-            <div className='flex-[0_0_33%] flex min-w-0' key={ index }>
-
-              <article className='relative border-5 border-white select-none'>
-                <img
-                  src={ item.img }
-                  alt={ item.title }
-                />
-                <div className='w-full bg-transparent absolute bottom-4 text-2xl p-2 pb-1 text-center text-white font-bold'>
-                  { item.title }
-                </div>
-              </article>
-
-            </div>
-          ) ) }
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-  )
+ return (
+  <section className='py-5'>
+   <Swiper
+    ref={swiperElRef}
+    modules={[
+     Navigation,
+     EffectFade,
+     EffectFlip,
+     EffectCoverflow,
+     EffectCards,
+     EffectCreative,
+     EffectCube,
+    ]}
+    effect='coverflow'
+    coverflowEffect={{
+     rotate: 50,
+     stretch: 0,
+     depth: 100,
+     modifier: 1,
+     slideShadows: true,
+    }}
+    autoplay={true}
+    slidesPerView={2.5}
+    navigation
+    loop={true}
+    setWrapperSize={true}
+    centeredSlides={true}
+    spaceBetween={-50}
+    className='w-full flex px-10'>
+    {slides.map((item, index) => (
+     <div className='w-full border-5 border-red-600 flex relative gap-5'>
+      <SwiperSlide className='relative border-0 border-white'>
+       <img src={item.img} />
+       <span className='absolute bottom-0 text-xl font-bold text-center w-full backdrop-blur-[2px] bg-gradient-to-t from-black/20 to-black/0 py-3'>
+        {item.title}
+       </span>
+      </SwiperSlide>
+     </div>
+    ))}
+   </Swiper>
+  </section>
+ )
 }
