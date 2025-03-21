@@ -114,9 +114,9 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border overflow-hidden;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-slate-950 text-foreground w-full h-screen overflow-y-auto text-pretty;
   }
 }
