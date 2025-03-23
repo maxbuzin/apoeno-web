@@ -1,26 +1,54 @@
-'use client';
-import useEmblaCarousel from 'embla-carousel-react';
-import { carouselOptions } from '@/lib/carouselOptions';
+import React from 'react'
+import Link from 'next/link'
+
+interface Certificate {
+  id: number;
+  imageUrl: string;
+  alt: string;
+}
+
+const certificates: Certificate[] = [
+  { id: 1, imageUrl: '/slides/certificates/certificate1.jpeg', alt: 'Certificate 1' },
+  { id: 2, imageUrl: '/slides/certificates/certificate1.jpeg', alt: 'Certificate 1' },
+  { id: 3, imageUrl: '/slides/certificates/certificate1.jpeg', alt: 'Certificate 1' },
+  { id: 4, imageUrl: '/slides/certificates/certificate1.jpeg', alt: 'Certificate 1' },
+  { id: 5, imageUrl: '/slides/certificates/certificate1.jpeg', alt: 'Certificate 1' },,
+  { id: 6, imageUrl: '/slides/certificates/certificate1.jpeg', alt: 'Certificate 1' },
+];
 
 export default function Certifications() {
-  // Remove type argument from useEmblaCarousel
-  const [emblaRef] = useEmblaCarousel(carouselOptions);
-
   return (
-    <section data-aos="fade-up" className="py-16">
-      <h2 className="text-3xl text-center font-semibold mb-6">MY Certifications</h2>
-      <div ref={emblaRef} className="overflow-hidden">
-        <div className="flex">
-          {/* Example slide - replace with dynamic slides */}
-          <div className="flex-[0_0_80%] md:flex-[0_0_40%] mx-2 bg-gray-900 p-4 rounded-xl shadow-xl">
-            <img 
-              src="/path-to-experience-image.jpg" 
-              className="rounded" 
-              alt="Experience description" 
-            />
-          </div>
+    <section data-aos="fade-up" data-aos-offset="-100" className="w-full px-20">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center text-white mb-12">
+          FEATURED CERTIFICATIONS
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {certificates.map((cert) => (
+            <div 
+              key={cert.id}
+              className="relative aspect-[4/3] bg-gray-800 rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300"
+            >
+              {/* Replace img with next/image when you have the actual images */}
+              <img
+                src={cert.imageUrl}
+                alt={cert.alt}
+                className="w-full h-full object-cover cursor-pointer"
+              />
+            </div>
+          ))}
         </div>
+
+        {/* <div className="text-center">
+          <Link 
+            href="/all-certifications" 
+            className="inline-block px-8 py-3 bg-blue-700 text-white rounded-md hover:bg-blue-600 transition-colors duration-300"
+          >
+            More certificates...
+          </Link>
+        </div> */}
       </div>
     </section>
-  );
+  )
 }
