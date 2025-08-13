@@ -1,0 +1,53 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#1e293b" />
+  
+  <!-- Kids BJJ Mat -->
+  <rect x="50" y="50" width="300" height="300" fill="#334155" stroke="#475569" stroke-width="3" />
+  <rect x="70" y="70" width="260" height="260" fill="none" stroke="#60a5fa" stroke-width="2" stroke-dasharray="5,5" />
+  
+  <!-- Instructor -->
+  <g transform="translate(200, 120)">
+    <circle cx="0" cy="0" r="25" fill="#64748b" />
+    <rect x="-15" y="25" width="30" height="60" rx="8" fill="#64748b" />
+    <rect x="-40" y="30" width="25" height="10" rx="5" fill="#64748b" transform="rotate(20, -40, 30)" />
+    <rect x="15" y="30" width="25" height="10" rx="5" fill="#64748b" transform="rotate(-20, 15, 30)" />
+  </g>
+  
+  <!-- Kids (smaller figures) -->
+  <g fill="#94a3b8">
+    <!-- Kid 1 -->
+    <circle cx="120" cy="200" r="15" />
+    <rect x="110" y="215" width="20" height="40" rx="6" />
+    <rect x="100" y="220" width="15" height="8" rx="4" transform="rotate(20, 100, 220)" />
+    <rect x="130" y="220" width="15" height="8" rx="4" transform="rotate(-20, 130, 220)" />
+    
+    <!-- Kid 2 -->
+    <circle cx="180" cy="220" r="15" />
+    <rect x="170" y="235" width="20" height="40" rx="6" />
+    <rect x="160" y="240" width="15" height="8" rx="4" transform="rotate(20, 160, 240)" />
+    <rect x="190" y="240" width="15" height="8" rx="4" transform="rotate(-20, 190, 240)" />
+    
+    <!-- Kid 3 -->
+    <circle cx="240" cy="200" r="15" />
+    <rect x="230" y="215" width="20" height="40" rx="6" />
+    <rect x="220" y="220" width="15" height="8" rx="4" transform="rotate(20, 220, 220)" />
+    <rect x="250" y="220" width="15" height="8" rx="4" transform="rotate(-20, 250, 220)" />
+    
+    <!-- Kid 4 -->
+    <circle cx="300" cy="220" r="15" />
+    <rect x="290" y="235" width="20" height="40" rx="6" />
+    <rect x="280" y="240" width="15" height="8" rx="4" transform="rotate(20, 280, 240)" />
+    <rect x="310" y="240" width="15" height="8" rx="4" transform="rotate(-20, 310, 240)" />
+  </g>
+  
+  <!-- Colorful elements to make it kid-friendly -->
+  <circle cx="80" cy="80" r="15" fill="#60a5fa" opacity="0.7" />
+  <circle cx="320" cy="80" r="15" fill="#f472b6" opacity="0.7" />
+  <circle cx="80" cy="320" r="15" fill="#4ade80" opacity="0.7" />
+  <circle cx="320" cy="320" r="15" fill="#facc15" opacity="0.7" />
+  
+  <!-- Text at bottom -->
+  <rect x="50" y="320" width="300" height="40" rx="5" fill="#0f172a" opacity="0.7" />
+  <text x="200" y="345" font-family="Arial" font-size="16" fill="white" text-anchor="middle">Kids Jiu-Jitsu Class</text>
+</svg>
